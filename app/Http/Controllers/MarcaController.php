@@ -14,7 +14,9 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        //
+        $marca = Marca::all();
+
+        return $marca;
     }
 
    
@@ -26,7 +28,10 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return 'Chegamos ate aqui';
+        //dd($request->all());//Para debugar somente com o request
+        $marca = Marca::create($request->all());//Desta forma criamos o registro de forma massiva
+        return $marca;
     }
 
     /**
@@ -37,7 +42,8 @@ class MarcaController extends Controller
      */
     public function show(Marca $marca)
     {
-        //
+        //Aqui no show ele recebe o id da rota e automaticamente pesquisa em Marca o id recebido e retorna os dados;
+        return $marca;
     }
 
         /**
@@ -49,7 +55,8 @@ class MarcaController extends Controller
      */
     public function update(Request $request, Marca $marca)
     {
-        //
+        $marca->update($request->all());
+        return $marca;
     }
 
     /**
@@ -60,6 +67,7 @@ class MarcaController extends Controller
      */
     public function destroy(Marca $marca)
     {
-        //
+        $marca->delete();
+        return ['msg' => 'O registro foi removido do banco de dados'];
     }
 }
