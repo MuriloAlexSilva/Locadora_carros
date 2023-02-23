@@ -92,6 +92,6 @@ class MarcaController extends Controller
 
         $marca->delete();
      
-        return reponse()->json(['msg' => 'O registro foi removido do banco de dados'],200);
+        return response()->json(['msg' => 'O registro foi removido do banco de dados'],200);
     }
 }
