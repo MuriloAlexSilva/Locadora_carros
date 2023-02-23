@@ -8,6 +8,10 @@ use App\Http\Requests\UpdateCarroRequest;
 
 class CarroController extends Controller
 {
+    public function __construct(Carro $carro)
+    {
+        $this->carro = $carro;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,9 @@ class CarroController extends Controller
      */
     public function index()
     {
-        //
+        $carro = $this->carro->all();
+
+        return $carro;
     }
 
     /**
@@ -26,7 +32,9 @@ class CarroController extends Controller
      */
     public function store(StoreCarroRequest $request)
     {
-        //
+        $carro = $this->carro->create($request->all());
+
+        return $carro;
     }
 
     /**
